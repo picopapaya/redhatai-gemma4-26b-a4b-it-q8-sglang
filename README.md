@@ -38,7 +38,11 @@ The image includes a hand-tuned Triton MoE kernel config that keeps shared memor
 ## Usage
 
 ```bash
-HF_TOKEN=hf_xxx docker compose up --build
+# Prod — pull image from Docker Hub
+HF_TOKEN=hf_xxx docker compose up
+
+# Dev — build image locally
+HF_TOKEN=hf_xxx docker compose -f docker-compose.yml -f docker-compose.dev.yml up --build
 ```
 
 The server starts on port **30000** and exposes an OpenAI-compatible API once the health check passes (allow a few minutes on first run while weights download).

@@ -1,0 +1,6 @@
+services:
+  redhatai-gemma4-26b-a4b-q8-it-sglang:
+    build:
+      context: .
+      platforms:
+        - linux/arm64
