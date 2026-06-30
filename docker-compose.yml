@@ -1,12 +1,8 @@
 # RedHatAI Gemma 4 26B-A4B-IT (FP8 pre-quantized, compressed-tensors) on GB10 / DGX Spark via SGLang.
-#   HF_TOKEN=hf_xxx docker compose up --build
+#   HF_TOKEN=hf_xxx docker compose up
 services:
   redhatai-gemma4-26b-a4b-q8-it-sglang:
-    build:
-      context: .
-      platforms:
-        - linux/arm64        # GB10 is aarch64 — force the arm64 layer.
-    image: redhatai-gemma4-26b-a4b-q8-it-sglang
+    image: picopapaya/redhatai-gemma4-26b-a4b-q8-it-sglang:latest
     container_name: redhatai-gemma4-26b-a4b-q8-it-sglang
     restart: unless-stopped
     ipc: host               # SGLang needs a large shared-memory segment.
