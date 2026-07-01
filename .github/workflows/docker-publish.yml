@@ -7,7 +7,7 @@ on:
   workflow_dispatch:
 
 env:
-  IMAGE_NAME: picopapaya/redhatai-gemma4-26b-a4b-q8-it-sglang
+  IMAGE_NAME: picopapaya/redhatai-gemma4-26b-a4b-it-q8-sglang
 
 jobs:
   build-and-push:

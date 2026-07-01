@@ -1,4 +1,4 @@
-# redhatai-gemma4-26b-a4b-q8-it-sglang
+# redhatai-gemma4-26b-a4b-it-q8-sglang
 
 Docker image that runs **Gemma 4 26B-A4B-IT** as an OpenAI-compatible API server, built for the **NVIDIA GB10 (DGX Spark)**.
 
@@ -8,7 +8,7 @@ Uses **pre-quantized FP8 weights** from RedHatAI (`RedHatAI/gemma-4-26B-A4B-it-F
 
 Gemma 4 26B-A4B is a Mixture-of-Experts (MoE) language model: it has 26 billion total parameters but only activates about 4 billion per token, giving it the compute cost of a much smaller model while retaining the capacity of a large one.
 
-This image differs from the sibling [`google-gemma4-26b-a4b-bf16-it-sglang`](https://github.com/picopapaya/google-gemma4-26b-a4b-bf16-it-sglang) project: instead of downloading BF16 weights and quantizing at load time, this image pulls weights that are already FP8-quantized, with per-channel calibration scales baked in by RedHatAI.
+This image differs from the sibling [`google-gemma4-26b-a4b-it-bf16-sglang`](https://github.com/picopapaya/google-gemma4-26b-a4b-it-bf16-sglang) project: instead of downloading BF16 weights and quantizing at load time, this image pulls weights that are already FP8-quantized, with per-channel calibration scales baked in by RedHatAI.
 
 The image includes a hand-tuned Triton MoE kernel config that keeps shared memory usage within the GB10's hardware limits. Because the `compressed-tensors` format uses per-channel scales for both the up- and down-projection MoE layers, the config is deployed to three filename variants that SGLang looks up at runtime.
 
