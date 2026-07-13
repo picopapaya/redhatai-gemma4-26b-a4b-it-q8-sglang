@@ -14,8 +14,8 @@ services:
       KV_CACHE_DTYPE: "fp8_e4m3"
       CONTEXT_LEN: "${CONTEXT_LEN:-262144}"
       MEM_FRACTION: "${MEM_FRACTION:-0.85}"
-      MAX_RUNNING_REQUESTS: "4"
-      # EXTRA_ARGS: "--enable-dp-attention --disable-cuda-graph"  # multi-Spark workaround
+      MAX_RUNNING_REQUESTS: "${MAX_RUNNING_REQUESTS:-4}"
+      EXTRA_ARGS: "${EXTRA_ARGS:-}"
     volumes:
       - hf-cache:/root/.cache/huggingface
     networks:
